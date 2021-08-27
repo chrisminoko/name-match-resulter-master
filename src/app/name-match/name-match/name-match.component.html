@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-xs-1-12">
+        <div class="form-group">
+            <input type="text" class="form-control" name="firstword" id="firstword" aria-describedby="" placeholder="" (keyup)="onFirstWord(FirstWord.value)" #FirstWord>
+            <small> {{keyword}} </small>
+            <input type="text" class="form-control" name="secondword" id="secondword" aria-describedby="" placeholder="" (keyup)="onSecondWord(SecondWord.value)" #SecondWord>
+            <button type="button" class="btn btn-primary" (click)="singleMatch()" [disabled]="!enableSingleMatch()">Calculate Match</button>
+          </div>
+    </div>
+    <div class="col-xs-1-12">
+        <input type="file" class="upload" (change)="fileUpload($event.target.files)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+        <button type="button" class="btn btn-primary" (click)="proccessCSVNames()" [disabled]="!csvFileContents">Calculate CSV Matches</button>
+    </div>
+</div>
+
+  
+
+<div class="matchtextarea">
+  <label for="">Calculations</label>
+  <textarea class="textarea" name="" id="" rows="3" disabled="true" [innerHTML]="resultarea"></textarea>
+</div>
